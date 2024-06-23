@@ -10,10 +10,15 @@ const adicionerSlice = createSlice({
   reducers: {
     adicionar: (state, action) => {
       state.adicionar.push(action.payload)
+    },
+    remover: (state, action) => {
+      state.adicionar = state.adicionar.filter(
+        (adicionar) => adicionar.id !== action.payload
+      )
     }
   }
 })
 
-export const { adicionar } = adicionerSlice.actions
+export const { adicionar, remover } = adicionerSlice.actions
 
 export default adicionerSlice.reducer
