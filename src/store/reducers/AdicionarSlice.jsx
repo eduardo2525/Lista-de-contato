@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  adicionar: []
+  adicionar: [],
+  listaId: 1
 }
 
 const adicionerSlice = createSlice({
@@ -9,14 +10,17 @@ const adicionerSlice = createSlice({
   initialState,
   reducers: {
     adicionar: (state, action) => {
-      state.adicionar.push(action.payload)
+      const novoContato = {
+        id: state.listaId,
+        ...action.payload
+      }
+      state.adicionar.push(novoContato)
+      state.listaId += 1
     },
     remover: (state, action) => {
-      state.adicionar = [
-        ...state.adicionar.filter(
-          (adicionar) => adicionar.id !== action.payload
-        )
-      ]
+      state.adicionar = state.adicionar.filter(
+        (adicionar) => adicionar.id !== action.payload
+      )
     }
   }
 })

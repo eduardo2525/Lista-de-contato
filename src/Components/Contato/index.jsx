@@ -16,30 +16,26 @@ const ContainerContato = () => {
   }
 
   return (
-    <>
-      <StyleContainer>
-        <ul>
-          {contatos.map((contato) => (
-            <>
-              <li key={contato}>
-                <div className="lista__contato">
-                  <span>{contato.nome}</span>
-                  <span>{contato.email}</span>
-                  <span>{contato.tel}</span>
-                </div>
-                <div className="lista__delete">
-                  <Button icon={<MdOutlineModeEditOutline />} />
-                  <Button
-                    icon={<MdDelete />}
-                    onClick={() => removerLista(contato)}
-                  />
-                </div>
-              </li>
-            </>
-          ))}
-        </ul>
-      </StyleContainer>
-    </>
+    <StyleContainer>
+      <ul>
+        {contatos.map((contato) => (
+          <li key={contato.id}>
+            <div className="lista__contato">
+              <span>{contato.nome}</span>
+              <span>{contato.email}</span>
+              <span>{contato.tel}</span>
+            </div>
+            <div className="lista__delete">
+              <Button icon={<MdOutlineModeEditOutline />} />
+              <Button
+                icon={<MdDelete />}
+                onClick={() => removerLista(contato.id)}
+              />
+            </div>
+          </li>
+        ))}
+      </ul>
+    </StyleContainer>
   )
 }
 

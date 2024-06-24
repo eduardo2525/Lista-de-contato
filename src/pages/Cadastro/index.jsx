@@ -1,5 +1,5 @@
-import InputMask from 'react-input-mask'
-import { useState } from 'react'
+import MaskedInput from 'react-text-mask'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { adicionar } from '../../store/reducers/AdicionarSlice'
@@ -9,10 +9,33 @@ import StyloForm from './style'
 function Cadastro() {
   const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
-  const [tel, setTel] = useState(55)
+  const [tel, setTel] = useState('')
   const navigate = useNavigate()
 
   const dispatch = useDispatch()
+
+  const phoneMask = [
+    '+',
+    '5',
+    '5',
+    ' ',
+    ' ',
+    '(',
+    /[1-9]/,
+    /\d/,
+    ')',
+    ' ',
+    /\d/,
+    /\d/,
+    /\d/,
+    /\d/,
+    /\d/,
+    '-',
+    /\d/,
+    /\d/,
+    /\d/,
+    /\d/
+  ]
 
   const useNome = (event) => {
     setNome(event.target.value)
@@ -22,7 +45,7 @@ function Cadastro() {
     setEmail(event.target.value)
   }
 
-  const useelFone = (event) => {
+  const uselFone = (event) => {
     setTel(event.target.value)
   }
 
@@ -32,7 +55,7 @@ function Cadastro() {
     dispatch(adicionar(novoContato))
     setNome('')
     setEmail('')
-    setTel(55)
+    setTel('')
     navigate('/')
   }
 
@@ -59,12 +82,12 @@ function Cadastro() {
           required
         />
         <label htmlFor="tel">Telefone:</label>
-        <InputMask
+        <MaskedInput
           id="tel"
-          mask="+99 (99) 99999-9999"
-          maskChar=" "
+          mask={phoneMask}
+          placeholder="Começe pelo DDD de sua cidade"
           value={tel}
-          onChange={useelFone}
+          onChange={uselFone}
           required
           style={{ fontSize: '20px' }}
         />
