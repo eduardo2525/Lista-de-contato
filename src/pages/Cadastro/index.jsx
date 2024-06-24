@@ -1,6 +1,7 @@
 import InputMask from 'react-input-mask'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { adicionar } from '../../store/reducers/AdicionarSlice'
 
 import StyloForm from './style'
@@ -9,6 +10,7 @@ function Cadastro() {
   const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
   const [tel, setTel] = useState(55)
+  const navigate = useNavigate()
 
   const dispatch = useDispatch()
 
@@ -31,6 +33,7 @@ function Cadastro() {
     setNome('')
     setEmail('')
     setTel(55)
+    navigate('/')
   }
 
   return (

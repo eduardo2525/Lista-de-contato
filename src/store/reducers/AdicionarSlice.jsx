@@ -5,16 +5,18 @@ const initialState = {
 }
 
 const adicionerSlice = createSlice({
-  name: 'adicionar',
+  name: 'adiciona',
   initialState,
   reducers: {
     adicionar: (state, action) => {
       state.adicionar.push(action.payload)
     },
     remover: (state, action) => {
-      state.adicionar = state.adicionar.filter(
-        (adicionar) => adicionar.id !== action.payload
-      )
+      state.adicionar = [
+        ...state.adicionar.filter(
+          (adicionar) => adicionar.id !== action.payload
+        )
+      ]
     }
   }
 })

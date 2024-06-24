@@ -21,7 +21,7 @@ const ContainerContato = () => {
         <ul>
           {contatos.map((contato) => (
             <>
-              <li key={contato.id}>
+              <li key={contato}>
                 <div className="lista__contato">
                   <span>{contato.nome}</span>
                   <span>{contato.email}</span>
@@ -31,7 +31,7 @@ const ContainerContato = () => {
                   <Button icon={<MdOutlineModeEditOutline />} />
                   <Button
                     icon={<MdDelete />}
-                    onClick={() => removerLista(contato.id)}
+                    onClick={() => removerLista(contato)}
                   />
                 </div>
               </li>
