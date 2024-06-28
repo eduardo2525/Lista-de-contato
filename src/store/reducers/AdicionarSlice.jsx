@@ -21,10 +21,19 @@ const adicionerSlice = createSlice({
       state.adicionar = state.adicionar.filter(
         (adicionar) => adicionar.id !== action.payload
       )
+    },
+    atualizar: (state, action) => {
+      const { id, nome, email, tel } = action.payload
+      const contatoIndex = state.adicionar.findIndex(
+        (contato) => contato.id === id
+      )
+      if (contatoIndex >= 0) {
+        state.adicionar[contatoIndex] = { id, nome, email, tel }
+      }
     }
   }
 })
 
-export const { adicionar, remover } = adicionerSlice.actions
+export const { adicionar, remover, atualizar } = adicionerSlice.actions
 
 export default adicionerSlice.reducer

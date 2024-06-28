@@ -6,16 +6,17 @@ const StyleForm = styled.form`
   margin: 20px 80px;
   background-color: ${variaveis.FormBackground};
   max-width: 80%;
-  height: 150px;
+  height: 100px;
   border-radius: 8px;
 
   .container__form {
     width: 60%;
     display: flex;
+    align-items: center;
     justify-content: space-around;
   }
 
-  h2 {
+  h1 {
     color: ${variaveis.Title};
   }
 

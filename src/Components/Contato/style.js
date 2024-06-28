@@ -42,6 +42,32 @@ const StyleContainer = styled.div`
     display: flex;
     align-items: center;
   }
+
+  .lista__actions {
+    width: 100px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  input {
+    font-size: 18px;
+  }
+
+  button {
+    width: 80%;
+    height: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+
+    &:hover {
+      border: none;
+      background: green;
+      color: white;
+    }
+  }
 `
 
 export default StyleContainer
